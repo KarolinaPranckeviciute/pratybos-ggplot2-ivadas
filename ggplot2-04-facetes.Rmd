@@ -65,11 +65,15 @@ Užduotys: facetės
 1. Kas nutinka, jei facetes kuriame pagal tolydųjį kintamąjį?
 
 ```{r}
-
+#Nėra prasminga braižyti duomenų
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(cty ~ cyl)
 ```
 
 2. Ką rodo tušti langeliai įvykdžius funkciją `facet_grid(drv ~ cyl)`? Kaip jie susiję su šiuo grafiku: 
 ```{r}
+# Nėra tokių reikšmių, kurios turėtų duomenis iš abiejų kintamųjų.
 ggplot(data = mpg) + 
      geom_point(mapping = aes(x = drv, y = cyl)) 
 ```
@@ -77,6 +81,7 @@ ggplot(data = mpg) +
 3. Ką daro žemiau pateiktas kodas? Ką reiškia taškas (`.`)?
 
 ```{r}
+# Yra tik 1 stulpelis ir eilutėse yra drv kintamojo reikšmės
 ggplot(data = mpg) + 
     geom_point(mapping = aes(x = displ, y = hwy)) + 
     facet_grid(drv ~ .) 

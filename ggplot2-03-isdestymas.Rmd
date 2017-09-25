@@ -38,7 +38,7 @@ Kitos skalės išdėstymui
 ----------------------------------------------------------------------------- 
 
 ```{r}
-# alpha – permatomumo skalė
+# alpha – permatomumo skalė, žymimas nuo 0 iki 1
 ggplot(data = mpg) + 
     geom_point(mapping = aes(x = displ, y = hwy, alpha = class)) 
 ```
@@ -70,18 +70,24 @@ Užduotys: estetinis išdėstymas
 
 ```{r}
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
 
 2. Kurie lentelės `mpg` kintamieji yra kategoriniai? Kurie – tolydieji? (Užuomina: `?mpg`). Kaip tai pamatyti atspausdinus `mpg`?
 
 ```{r}
-
+# kategoriniai  - trans, fl,class, manufacturer, model, drv,year, cyl,cty, hwy
+# tolydieji - displ, 
 ```
 
 3. Pasirinkite tolydųjį kintamąjį ir atidėkite jo reikšmes šiose skalėse: `color`, `size`, `shape`. 
 
 ```{r}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = trans, y = hwy), shape = class)
+
+
 
 ```
 
@@ -90,8 +96,16 @@ ggplot(data = mpg) +
 
 ```{r}
 
+#  Tolydžiojo kintamojo negalima išdėstyti pagal jo formą
+#   
+#  SKirstant pagal kateg ir tolyd. kint. spalvas, skiriasi legendos 
 ```
 ```{r}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = cty, y = hwy), color = "cty")
+
+
 
 ```
 
@@ -99,6 +113,7 @@ ggplot(data = mpg) +
 5. Ką daro estetikos elementas `stroke`? Su kuriomis formomis jis veikia? (Užuomina: naudokite `geom_point`).
 
 ```{r}
+#stroke - kažkieno dydis
 
 ```
 
@@ -106,23 +121,28 @@ ggplot(data = mpg) +
 6. Kas nutinka, jei naudojate kelias skales (pvz., `color`, `size`) su keliais skirtingais kintamaisiais?
 
 ```{r}
+# Kelios skalės, dvi atskiros legendos
 
 ```
 
 7. Kas nutinka, jei to paties kintamojo reikšmes atidedate keliose skirtingose skalėse (tarkime, `color` ir `shape`)?
 
 ```{r}
-
+# Sudedama į vieną legendą.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = cty, y = hwy), 
 ```
 
 8. Kas nutinka, jei su tam tikra skale susiejate ne konkretaus kintamojo pavadinimą (pvz., `aes(colour = displ)`), o kokį nors veiksmą su tuo kintamuoju, tarkime `aes(colour = displ < 5)`?
 
 ```{r}
+             
+# Palengvėja gyvenimas, tikrai galima rašyti.
 
 ```
 
-9. Nubraižykite grafiką ir jame rankiniu būdu parinkite spakvas naudodami:
-    * spalvų pavadinimus (rašyti kabtėse);
+9. Nubraižykite grafiką ir jame rankiniu būdu parinkite spalvas naudodami:
+    * spalvų pavadinimus (rašyti kabutėse);
     * šešioliktainius kodus (rašyti kabutėse);
     * spalvų numerius tarp 1 ir 8, be kabučių.
     

@@ -114,10 +114,10 @@ Užduotys: Geomai
 ----------------------------------------------------------------------------- 
 
 1. Kurį geomą naudosite braižyti: 
-    * Linijų grafiką?
+    * Linijų grafiką? 
     * Stačiakampę diagramą (boxplot)?
     * Histogramą?
-    * Sklaidos diagramą (scatterplot)?
+    * Sklaidos diagramą (scatterplot)? geom_point
 
 2. **Mintimis** įvykdykite šį kodą ir nuspėkite rezultatą. Tik po to patikrinkite, ar jūsų mintys sutapo su tikruoju atsakymu.
 
